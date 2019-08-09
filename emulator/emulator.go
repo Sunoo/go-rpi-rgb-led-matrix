@@ -187,6 +187,11 @@ func (e *Emulator) Render() error {
 	return e.Apply(e.leds)
 }
 
+func (e *Emulator) RenderKeep() error {
+	//TODO: Actually keep old pixels
+	return e.Apply(e.leds)
+}
+
 func (e *Emulator) At(position int) color.Color {
 	if e.leds[position] == nil {
 		return color.Black

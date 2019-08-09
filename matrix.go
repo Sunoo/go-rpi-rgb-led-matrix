@@ -224,6 +224,16 @@ func (c *RGBLedMatrix) Apply(leds []color.Color) error {
 
 // Render update the display with the data from the LED buffer
 func (c *RGBLedMatrix) Render() error {
+	return c.RenderActual(false)
+}
+
+// Render update the display with the data from the LED buffer
+func (c *RGBLedMatrix) RenderKeep() error {
+	return c.RenderActual(true)
+}
+
+// Render update the display with the data from the LED buffer
+func (c *RGBLedMatrix) RenderActual(keepContents bool) error {
 	w, h := c.Config.geometry()
 
 	C.led_matrix_swap(
