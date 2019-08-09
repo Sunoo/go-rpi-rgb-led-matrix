@@ -199,6 +199,10 @@ func (e *Emulator) Set(position int, c color.Color) {
 	e.leds[position] = color.RGBAModel.Convert(c)
 }
 
+func (e *Emulator) SetBrightness(brightness int) {
+	//TODO!
+}
+
 func (e *Emulator) Close() error {
 	return nil
 }

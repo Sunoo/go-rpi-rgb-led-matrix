@@ -43,7 +43,7 @@ import (
 	"os"
 	"unsafe"
 
-	"github.com/mcuadros/go-rpi-rgb-led-matrix/emulator"
+	"github.com/Sunoo/go-rpi-rgb-led-matrix/emulator"
 )
 
 // DefaultConfig default WS281x configuration
@@ -246,6 +246,11 @@ func (c *RGBLedMatrix) At(position int) color.Color {
 // Set set LED at position x,y to the provided 24-bit color value.
 func (c *RGBLedMatrix) Set(position int, color color.Color) {
 	c.leds[position] = C.uint32_t(colorToUint32(color))
+}
+
+// Sets the Brightness
+func (c *RGBLedMatrix) SetBrightness(brightness int) {
+	C.led_matrix_set_brightness(c.matrix, C.uint8_t(brightness))
 }
 
 // Close finalizes the ws281x interface
