@@ -71,6 +71,7 @@ type Matrix interface {
 	Geometry() (width, height int)
 	At(position int) color.Color
 	Set(position int, c color.Color)
+	SetBrightness(brightness int)
 	Apply([]color.Color) error
 	Render() error
 	Close() error
