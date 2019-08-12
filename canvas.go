@@ -30,6 +30,11 @@ func (c *Canvas) Render() error {
 	return c.m.Render()
 }
 
+// Render update the display with the data from the LED buffer
+func (c *Canvas) RenderKeep() error {
+	return c.m.RenderKeep()
+}
+
 // ColorModel returns the canvas' color model, always color.RGBAModel
 func (c *Canvas) ColorModel() color.Model {
 	return color.RGBAModel

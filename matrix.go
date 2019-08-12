@@ -242,8 +242,9 @@ func (c *RGBLedMatrix) RenderActual(keepContents bool) error {
 		C.int(w), C.int(h),
 		(*C.uint32_t)(unsafe.Pointer(&c.leds[0])),
 	)
-
-	c.leds = make([]C.uint32_t, w*h)
+	if !keepContents {
+		c.leds = make([]C.uint32_t, w*h)
+	}
 	return nil
 }
 
